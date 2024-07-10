@@ -1,0 +1,27 @@
+CC=gcc
+CFLAGS=-Wall
+
+p3: p3.o lista_hist.o lista_mem.o p2_functions.o p3_functions.o lista_procesos.o
+	$(CC) -o p3 p3.o lista_hist.o lista_mem.o p2_functions.o p3_functions.o lista_procesos.o $(CFLAGS)
+
+p3.o: p3.c lista_hist.h lista_mem.h p2_functions.h p1.h
+	$(CC) -c p3.c $(CFLAGS)
+
+lista_hist.o: lista_hist.c lista_hist.h
+	$(CC) -c lista_hist.c $(CFLAGS)
+
+lista_mem.o: lista_mem.c lista_mem.h
+	$(CC) -c lista_mem.c $(CFLAGS)
+
+p2_functions.o: p2_functions.c p2_functions.h
+	$(CC) -c p2_functions.c $(CFLAGS)
+
+p3_functions.o: p3_functions.c p3_functions.h
+	$(CC) -c p3_functions.c $(CFLAGS)
+
+lista_procesos.o: lista_procesos.c lista_procesos.h
+	$(CC) -c lista_procesos.c $(CFLAGS)
+
+clean:
+	rm -f p3 *.o
+
